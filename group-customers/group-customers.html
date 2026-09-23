@@ -1,0 +1,23 @@
+<table border="1" style="width:70%">
+  <tr>
+    <td><b>Id</b></td>
+    <td><b>Name</b></td>
+    <td><b>Email</b></td>
+    <td><b>Age</b></td>
+    <td><b>#</b></td>
+  </tr>
+  @for (grp of customerGroups(); track grp.CustomerTypeId) {
+    <tr>
+      <td colspan="5">{{ grp.CustomerTypeId }} - {{ grp.CustomterTypeName }}</td>
+    </tr>
+    @for (c of grp.Customers; track c.Id) {
+      <tr>
+        <td>{{ c.Id }}</td>
+        <td>{{ c.Name }}</td>
+        <td>{{ c.Email }}</td>
+        <td>{{ c.Age }}</td>
+        <td><img [src]="c.Image" width="100"></td>
+      </tr>
+    }
+  }
+</table>
